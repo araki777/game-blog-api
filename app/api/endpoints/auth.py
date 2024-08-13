@@ -25,7 +25,6 @@ async def login_access_token(
         email=form_data.username,
         password=form_data.password,
     )
-    print(user)
     if not user:
         raise APIException(ErrorMessage.FAILURE_LOGIN)
 

@@ -42,7 +42,7 @@ class Settings(BaseSettings):
             )
         else:
             return (
-                "postgresql://"
+                "postgresql+psycopg2://"
                 f"{self.DB_USER_NAME}:{self.DB_PASSWORD}@"
                 f"{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
             )

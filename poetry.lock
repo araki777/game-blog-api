@@ -765,8 +765,6 @@ mypy = ["mypy (>=0.910)"]
 mssql = ["pyodbc"]
 mssql-pymssql = ["pymssql"]
 mssql-pyodbc = ["pyodbc"]
-mysql = ["mysqlclient (>=1.4.0)"]
-mysql-connector = ["mysql-connector-python"]
 mariadb-connector = ["mariadb (>=1.0.1,!=1.1.2,!=1.1.5)"]
 oracle = ["cx_oracle (>=8)"]
 oracle-oracledb = ["oracledb (>=1.0.1)"]
@@ -777,8 +775,6 @@ postgresql-psycopg2binary = ["psycopg2-binary"]
 postgresql-psycopg2cffi = ["psycopg2cffi"]
 postgresql-psycopg = ["psycopg (>=3.0.7)"]
 postgresql-psycopgbinary = ["psycopg[binary] (>=3.0.7)"]
-pymysql = ["pymysql"]
-aiomysql = ["greenlet (!=0.4.17)", "aiomysql (>=0.2.0)"]
 aioodbc = ["greenlet (!=0.4.17)", "aioodbc"]
 asyncmy = ["greenlet (!=0.4.17)", "asyncmy (>=0.2.3,!=0.2.4,!=0.2.6)"]
 aiosqlite = ["greenlet (!=0.4.17)", "aiosqlite", "typing_extensions (!=3.10.0.1)"]
@@ -909,7 +905,7 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "beedd9b63fbce4d77855c65737dce05f60edb926da99b261e3de52963efabab4"
+content-hash = "1319eb23b726167b8091e7391646f6cfedaae1700b47d3f9a14fe229e26b5f27"
 
 [metadata.files]
 alembic = [
