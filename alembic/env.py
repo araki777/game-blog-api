@@ -19,7 +19,6 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 # .envにセットされたDB設定を使用
-print(config)
 uri = config.get_main_option("sqlalchemy.url")
 config.set_main_option("sqlalchemy.url", uri or settings.get_database_url())
 

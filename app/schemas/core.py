@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any
+from typing import Any, Optional
 
 from fastapi import Query
 from pydantic import BaseModel, ConfigDict, field_validator
@@ -53,21 +53,25 @@ class SortQueryIn(BaseSchema):
     sort_field: Any | None = Query(None)
     direction: SortDirectionEnum = Query(SortDirectionEnum.asc)
 
-    def apply_to_query(self, query: Any, order_by_clause: Any | None = None) -> Any:
-        if not order_by_clause:
+    def apply_to_query(self, query: Any, model: Any) -> Any:
+        if not self.sort_field:
+            return query
+
+        sort_column = getattr(model, self.sort_filed, None)
+        if not sort_column:
             return query
 
         if self.direction == SortDirectionEnum.desc:
-            return query.order_by(desc(order_by_clause))
+            return query.order_by(desc(sort_column))
         else:
-            return query.order_by(order_by_clause)
+            return query.order_by(sort_column)
 
 
 class FilterQueryIn(BaseSchema):
     sort: str = Query(None)
     direction: str = Query(None)
-    start: int | None = Query(None)
-    end: int | None = Query(None)
+    start: Optional[int] = Query(None)
+    end: Optional[int] = Query(None)
 
     @field_validator("direction", mode="before")  # mode=beforeは,v1のpre=Trueと同等
     def validate_direction(cls, v: str) -> str:
